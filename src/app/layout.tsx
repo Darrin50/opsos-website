@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://opsos.io',
+    url: 'https://opsos.pro',
     siteName: 'OpsOS',
     title: 'OpsOS — Warehouse Operations Intelligence',
     description: 'Real-time visibility into throughput, waste, bottlenecks, and headcount. Built for manufacturers and distributors.',
@@ -39,7 +39,8 @@ const softwareApplicationSchema = {
   name: 'OpsOS',
   applicationCategory: 'BusinessApplication',
   operatingSystem: 'Web',
-  description: 'Warehouse operations intelligence platform with real-time throughput tracking, bottleneck identification, waste monitoring, and shift management for manufacturers and distributors.',
+  description: 'Warehouse operations intelligence platform for automotive suppliers and distributors',
+  url: 'https://opsos.pro',
   offers: {
     '@type': 'AggregateOffer',
     priceCurrency: 'USD',
@@ -53,16 +54,17 @@ const softwareApplicationSchema = {
     ],
   },
   featureList: ['Real-time throughput tracking', 'OEE monitoring', 'Bottleneck identification', 'Waste tracking', 'Shift management', 'Safety incident tracking', 'AI-powered recommendations', 'Lean toolkit'],
-  screenshot: 'https://opsos.io/screenshot.png',
+  screenshot: 'https://opsos.pro/screenshot.png',
 };
 
 const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: 'OpsOS',
-  url: 'https://opsos.io',
-  logo: 'https://opsos.io/logo.png',
+  url: 'https://opsos.pro',
+  logo: 'https://opsos.pro/logo.png',
   description: 'Warehouse operations intelligence platform for mid-size manufacturers and distributors.',
+  sameAs: [],
   foundingLocation: { '@type': 'Place', name: 'Detroit, MI' },
   areaServed: 'US',
   knowsAbout: ['Warehouse operations', 'Manufacturing efficiency', 'OEE tracking', 'Lean manufacturing', 'Throughput optimization'],
