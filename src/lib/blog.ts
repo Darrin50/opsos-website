@@ -668,9 +668,24 @@ To understand how throughput connects to staffing decisions, see [Why Your Throu
     date: '2026-03-28',
     readTime: '8 min read',
     pillar: 'Shift Management',
-    content: 'content',
-    faqs: []
-  }nit target has a problem. A plant that produced 847 units on a 800-unit target is ahead of plan.
+    content: `
+## The Shift Report Most Plants Write Is the Wrong Document
+
+Ask a plant manager what a shift report should contain and they'll describe something that looks like a summary of what happened: units produced, downtime events, quality issues. A record for the files.
+
+That's not what a shift performance report should be. A shift performance report is a decision-making document. Its job is to tell the next 8 hours of leadership — and the next 24 hours of decisions — exactly what the previous 8 hours revealed about how the operation is performing.
+
+The difference between a record and a decision-making document is in what you track, how you structure it, and what question it answers.
+
+## The 7 Elements Every Shift Report Must Include
+
+### 1. Output vs. Target (With Variance, Not Just Total)
+
+Produced: 847 units.
+Target: 900 units.
+Variance: -53 units (-5.9%).
+
+This is not the same as "produced 847 units." The variance is what matters. A plant that produced 847 units on a 900-unit target has a problem. A plant that produced 847 units on a 800-unit target is ahead of plan.
 
 Track the variance at the shift level. Track it cumulatively across the week. If cumulative variance is growing, you have a systemic problem. If it's stable around zero, you're managing to plan.
 
@@ -771,9 +786,8 @@ For a broader look at what metrics belong in your daily operational review, see 
     date: '2026-03-28',
     readTime: '10 min read',
     pillar: 'Throughput & Productivity',
-    content: `test`,
-    faqs: []
-  }## The Spreadsheet Is Not the Problem
+    content: `
+## The Spreadsheet Is Not the Problem
 
 This article is not going to tell you that Excel is bad. Excel is a remarkable tool that has done more for operations management than almost any software ever written.
 
@@ -891,9 +905,8 @@ For a practical look at what throughput data looks like before and after the tra
     date: '2026-03-28',
     readTime: '9 min read',
     pillar: 'Waste Reduction & Lean',
-    content: `test`,
-    faqs: []
-  }## Scrap Is Never Random
+    content: `
+## Scrap Is Never Random
 
 Every quality manager has heard some version of this: "It's just part of the process. Some scrap is unavoidable."
 
@@ -1002,9 +1015,8 @@ For a full view of how scrap reduction connects to your OEE metrics, see [OEE Ex
     date: '2026-03-28',
     readTime: '10 min read',
     pillar: 'Bottleneck & Flow',
-    content: `test`,
-    faqs: []
-  }## The Difference Between a Scoreboard and a Warning System
+    content: `
+## The Difference Between a Scoreboard and a Warning System
 
 Most warehouse and plant KPI dashboards are scoreboards. They tell you how you did. Units shipped yesterday. OEE last week. Scrap rate last month. These are lagging indicators — they measure outcomes that have already occurred.
 
@@ -1112,6 +1124,7 @@ For the complete picture of KPIs — both leading and lagging — see [The 8 War
       }
     ]
   }
+
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {
