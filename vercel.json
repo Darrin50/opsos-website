@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/app/:path*",
+      "destination": "https://ops-os-pearl.vercel.app/app/:path*"
+    }
+  ]
+}
