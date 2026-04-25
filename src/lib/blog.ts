@@ -370,14 +370,7 @@ No more calculating OEE in Excel at end of month. No more finding out you ran at
     readTime: '9 min read',
     pillar: 'Throughput & Productivity',
     content: `full content here`,
-    faqs: []
-  }rs when production transactions are entered into the system hours after the actual work occurs. This means throughput reports show data that is 4–12 hours old, creating a timing mismatch between output data and labor cost data. Real-time monitoring systems that capture count events automatically eliminate this latency.'
-      },
-      {
-        q: 'How do you catch throughput reporting errors?',
-        a: 'Daily reconciliation is the most reliable method: compare reported throughput against shipping records and WIP inventory change each morning. If these numbers do not reconcile within 1–2%, there is a measurement error worth investigating. Over time, this habit keeps throughput data honest.'
-      }
-    ]
+    faqs: [],
   },
   {
     slug: 'real-cost-10-minute-downtime-automotive',
@@ -387,18 +380,7 @@ No more calculating OEE in Excel at end of month. No more finding out you ran at
     readTime: '8 min read',
     pillar: 'Bottleneck & Flow',
     content: 'content',
-    faqs: []
-  }nto 30+ minutes of lost downstream capacity.'
-      },
-      {
-        q: 'How do OEM chargebacks work for automotive suppliers?',
-        a: 'OEM chargebacks are financial penalties assessed by automotive OEM customers when a supplier delivers parts late or short. Chargeback amounts vary by OEM and agreement, but typically range from $250–$2,500 per incident for delivery misses. Repeated delivery performance issues can trigger quality audits and jeopardize the supply agreement.'
-      },
-      {
-        q: 'Why is downtime cost hard to track in most plants?',
-        a: 'Downtime cost is distributed across multiple cost centers and reporting systems: labor idling shows up in payroll, capacity loss in schedule variance, overhead absorption loss in the P&L, and OEM chargebacks in customer claims — none of which are linked back to the original downtime event. Without a system that connects these layers, the true cost is invisible.'
-      }
-    ]
+    faqs: [],
   },
   {
     slug: 'oee-explained-no-textbooks-plant-managers',
@@ -408,35 +390,24 @@ No more calculating OEE in Excel at end of month. No more finding out you ran at
     readTime: '10 min read',
     pillar: 'Throughput & Productivity',
     content: 'content',
-    faqs: []
-  }time. Performance = (Good parts + Scrap) ÷ (Planned time × ideal rate). Quality = Good parts ÷ (Good parts + Scrap)
-
-Do this for 30 days. You'll know your OEE, you'll know which component is the biggest loss, and you'll have a target.
-
-When you're ready to do this automatically — with real-time data, automatic alerts, and shift-by-shift trending — that's what OpsOS OpsPulse is built for.
-
-For a deeper look at how OEE connects to your throughput numbers, see [Why Your Throughput Numbers Are Lying to You](/blog/throughput-numbers-lying-how-to-fix). And to understand the full financial picture of what poor OEE costs, see [The Real Cost of a 10-Minute Downtime Event](/blog/real-cost-10-minute-downtime-automotive).
-
-[See real-time OEE tracking in action — request a demo at opsos.pro](https://opsos.pro)
-    `,
     faqs: [
       {
         q: 'What is OEE in simple terms for plant managers?',
-        a: 'OEE (Overall Equipment Effectiveness) tells you what percentage of your theoretical production capacity you actually used. An OEE of 65% means you used 65% of what was possible — the remaining 35% was lost to downtime, slow running, or defects. World-class OEE is 85%; the average manufacturing plant runs at 60%.'
+        a: 'OEE (Overall Equipment Effectiveness) tells you what percentage of your theoretical production capacity you actually used. An OEE of 65% means you used 65% of what was possible — the remaining 35% was lost to downtime, slow running, or defects. World-class OEE is 85%; the average manufacturing plant runs at 60%.',
       },
       {
         q: 'What are the three components of OEE?',
-        a: 'OEE is composed of Availability (was the machine running when scheduled?), Performance (was it running at the correct speed?), and Quality (were the parts good on the first pass?). Performance losses — from minor stops and reduced speed — are often the largest OEE loss category at plants without real-time monitoring.'
+        a: 'OEE is composed of Availability (was the machine running when scheduled?), Performance (was it running at the correct speed?), and Quality (were the parts good on the first pass?). Performance losses — from minor stops and reduced speed — are often the largest OEE loss category at plants without real-time monitoring.',
       },
       {
         q: 'How often should OEE be measured?',
-        a: 'OEE should be measured by shift at minimum. Monthly OEE reports are history lessons — by the time they are published, the root causes are weeks old. Real-time or hourly OEE monitoring allows managers to respond to performance drops during the shift, not after it.'
+        a: 'OEE should be measured by shift at minimum. Monthly OEE reports are history lessons — by the time they are published, the root causes are weeks old. Real-time or hourly OEE monitoring allows managers to respond to performance drops during the shift, not after it.',
       },
       {
         q: 'Can you improve OEE without buying software?',
-        a: 'Yes. Manual OEE measurement using paper downtime logs, part counts, and a spreadsheet will give you a baseline. The key elements are: a defined ideal cycle time, shift-level downtime tracking, and separate counts for good parts and scrap. Manual measurement is a valid starting point, though real-time automated systems provide significantly better visibility into Performance losses.'
-      }
-    ]
+        a: 'Yes. Manual OEE measurement using paper downtime logs, part counts, and a spreadsheet will give you a baseline. The key elements are: a defined ideal cycle time, shift-level downtime tracking, and separate counts for good parts and scrap. Manual measurement is a valid starting point, though real-time automated systems provide significantly better visibility into Performance losses.',
+      },
+    ],
   },
   {
     slug: 'detroit-auto-suppliers-losing-50k-month',
@@ -446,51 +417,24 @@ For a deeper look at how OEE connects to your throughput numbers, see [Why Your 
     readTime: '9 min read',
     pillar: 'Waste Reduction & Lean',
     content: 'content',
-    faqs: []
-  }eduction in time) = **$150,000/year in carrying cost reduction**
-
-The path to this isn't more inventory — it's better flow. Specifically, it's understanding where WIP accumulates (the queue in front of the constraint) and fixing the constraint. See [The Real Cost of a 10-Minute Downtime Event](/blog/real-cost-10-minute-downtime-automotive) for how downtime events drive WIP buildup.
-
-## Hidden Loss #5: Overtime to Cover Preventable Capacity Shortfall ($8,000–$15,000/month)
-
-When a shift falls short of target — for any reason — the options are: carry the shortfall forward (and risk missing the customer shipment) or authorize overtime to make it up. Most plants authorize overtime because the customer delivery risk is too high.
-
-Overtime labor costs 50% more than straight-time. If a shift falls short by 2 hours of production and you make it up with 12 people on overtime for 2 hours:
-
-12 people × 2 hours × $42/hour (OT rate) = $1,008 per shortfall event
-
-At 3 shortfall events per week: $1,008 × 3 × 50 weeks = **$151,200/year in preventable overtime cost**
-
-The key word is preventable. Overtime to cover planned output increases is normal. Overtime to make up for a line that ran at 72% efficiency all shift because of micro-stoppages and slow performance — that's waste, not capacity.
-
-## The Common Thread: Visibility
-
-Every one of these hidden losses exists because of limited visibility. When you can't see micro-stoppages, you can't fix them. When you don't track startup scrap separately, you can't target changeover improvement. When you don't know WIP age, you can't improve flow.
-
-OpsOS's suite — OpsPulse, WasteWatch, and ShiftAdvisor — provides the visibility layer that makes these losses visible, measurable, and actionable. Most operations begin finding cost reduction opportunities within the first two weeks of implementation.
-
-Want to know which KPIs to track to surface these losses? See [The Warehouse KPIs That Actually Predict Problems Before They Happen](/blog/warehouse-kpis-predict-problems-early).
-
-[Stop losing $50K/month to invisible waste. See OpsOS in action — request a demo at opsos.pro](https://opsos.pro)
-    `,
     faqs: [
       {
         q: 'What are the most common hidden losses at automotive suppliers?',
-        a: 'The five most common hidden losses are: micro-stoppages (unlogged machine pauses under 5 minutes), first-time quality failures during changeover startup, staffing overhead on non-value-added tasks, WIP carrying cost from inventory that sits too long, and overtime to cover preventable capacity shortfall. Together, these losses typically amount to $50,000–$150,000 per month at mid-size facilities.'
+        a: 'The five most common hidden losses are: micro-stoppages (unlogged machine pauses under 5 minutes), first-time quality failures during changeover startup, staffing overhead on non-value-added tasks, WIP carrying cost from inventory that sits too long, and overtime to cover preventable capacity shortfall. Together, these losses typically amount to $50,000–$150,000 per month at mid-size facilities.',
       },
       {
         q: 'What are micro-stoppages and why do they matter?',
-        a: 'Micro-stoppages are machine pauses of 30 seconds to 4 minutes that occur without being logged as downtime events. Because they are small enough for operators to manually restart the machine, they never appear in the CMMS. However, 40–80 micro-stoppages per shift can add up to 60–120 minutes of lost production time — the equivalent of a major breakdown, but invisible in standard reports.'
+        a: 'Micro-stoppages are machine pauses of 30 seconds to 4 minutes that occur without being logged as downtime events. Because they are small enough for operators to manually restart the machine, they never appear in the CMMS. However, 40–80 micro-stoppages per shift can add up to 60–120 minutes of lost production time — the equivalent of a major breakdown, but invisible in standard reports.',
       },
       {
         q: 'How do automotive suppliers reduce startup scrap after changeovers?',
-        a: 'Reducing startup scrap requires separating startup yield from steady-state scrap rate in reporting, establishing written changeover procedures with parameter settings, implementing first-part verification protocols before running production quantities, and tracking startup scrap as a separate metric with a specific improvement target.'
+        a: 'Reducing startup scrap requires separating startup yield from steady-state scrap rate in reporting, establishing written changeover procedures with parameter settings, implementing first-part verification protocols before running production quantities, and tracking startup scrap as a separate metric with a specific improvement target.',
       },
       {
         q: 'What is the cost of preventable overtime at a manufacturing facility?',
-        a: 'Overtime to cover preventable capacity shortfall — caused by micro-stoppages, slow performance, or unplanned downtime — typically costs $100,000–$200,000 per year at a 150-person automotive supplier facility. This is avoidable overtime distinct from planned overtime for volume increases, and it is eliminated by improving real-time performance visibility and response time.'
-      }
-    ]
+        a: 'Overtime to cover preventable capacity shortfall — caused by micro-stoppages, slow performance, or unplanned downtime — typically costs $100,000–$200,000 per year at a 150-person automotive supplier facility. This is avoidable overtime distinct from planned overtime for volume increases, and it is eliminated by improving real-time performance visibility and response time.',
+      },
+    ],
   },
   {
     slug: 'bottleneck-analysis-5-step-weekly',
@@ -500,78 +444,24 @@ Want to know which KPIs to track to surface these losses? See [The Warehouse KPI
     readTime: '11 min read',
     pillar: 'Bottleneck & Flow',
     content: 'content',
-    faqs: []
-  } Capacity gap × Hours/year × Cost per unit margin
-
-Example: A welding station rated for 85 assemblies/hour actually runs at 64/hour. That's a 21-unit/hour gap. At $22 contribution margin per assembly and 4,000 hours/year of operation:
-
-21 × 4,000 × $22 = **$1,848,000 in annual capacity loss from this single constraint**
-
-This number gets leadership attention. It also establishes the ROI framework for any improvement investment targeting this constraint. A $200,000 investment that recovers 50% of the gap has a 5-month payback.
-
-**Time required:** 5 minutes
-
-## Step 4: Exploit the Constraint — Extract Maximum Value Before You Elevate
-
-The Theory of Constraints framework distinguishes between "exploiting" a constraint (getting more output from it without investing) and "elevating" it (adding capacity through capital or headcount).
-
-Always exploit before you elevate. The reason: most constraints are not running at their actual physical limits. They're running below their limits because of avoidable losses — downtime, slow performance, or quality problems that could be reduced without any capital investment.
-
-Exploitation actions at a bottleneck:
-- **Eliminate planned downtime during constraint time.** Move breaks, cleanup, and preventive maintenance to non-constraint resources where possible.
-- **Protect the constraint from starvation.** Ensure the constraint never waits for material from upstream. Add a small buffer inventory in front of it if needed.
-- **Cross-train a dedicated operator.** The constraint should never be idle because its operator went to the bathroom or was pulled to a different task. Have a backup.
-- **Reduce changeover time on the constraint.** Every minute of changeover on the constraint is a minute of lost system throughput. Apply SMED (Single-Minute Exchange of Die) principles specifically to constraint changeovers.
-- **Improve first-pass quality at the constraint.** Defects that have to be reworked before or after the constraint are throughput killers. Implement real-time quality checks at the constraint input.
-
-**Time required:** This is an ongoing operational priority, not a one-time action
-
-## Step 5: Check Whether the Constraint Has Shifted
-
-After exploitation actions have been in place for 2–4 weeks, repeat the measurement from Step 2. Has the constraint's throughput rate improved? If so, by how much?
-
-More importantly: has the constraint moved? As you improve the bottleneck's performance, it may eventually no longer be the limiting factor — a previously subordinated process step may become the new constraint.
-
-This is the weekly rhythm: re-measure, re-identify, re-prioritize. The constraint is not fixed. It moves as you improve.
-
-Keep a log of:
-- Constraint location each week
-- Actual throughput rate at the constraint
-- Gap from rated capacity
-- Improvement actions in progress
-
-Over 90 days, this log tells you the story of your throughput improvement trajectory — which is the best evidence you have for resource allocation decisions.
-
-## The Role of Real-Time Data in Bottleneck Analysis
-
-Manual bottleneck analysis (Steps 1–5 done on paper or in a spreadsheet) is valid and will produce real results. The limitation is temporal resolution: you're analyzing weekly averages, which means you're missing intra-shift patterns.
-
-Many bottlenecks are not stable. They shift by hour of day, by day of week, or in response to product mix. A machine that's the constraint during the first 4 hours of a shift (when it's running model A) may not be the constraint during the last 4 hours (when it switches to model B with a longer cycle time).
-
-OpsOS OpsPulse tracks throughput rate, queue depth, and performance data in real time, allowing bottleneck analysis to be done at the shift level rather than the weekly level. When the constraint moves, the dashboard shows you. When a bottleneck event begins, you know within 15 minutes rather than at the end of the week.
-
-For a practical look at how throughput measurement connects to bottleneck analysis, see [Why Your Throughput Numbers Are Lying to You](/blog/throughput-numbers-lying-how-to-fix). And to understand how OEE connects to bottleneck performance, see [OEE Explained for Plant Managers](/blog/oee-explained-no-textbooks-plant-managers).
-
-[See real-time bottleneck identification in action — request a demo at opsos.pro](https://opsos.pro)
-    `,
     faqs: [
       {
         q: 'What is bottleneck analysis in manufacturing?',
-        a: 'Bottleneck analysis is the process of identifying the single constraint that limits total system throughput — the process step where capacity is insufficient to meet demand from upstream operations. Based on the Theory of Constraints, every system has exactly one binding constraint at any time, and improving any other part of the system does not increase total output.'
+        a: 'Bottleneck analysis is the process of identifying the single constraint that limits total system throughput — the process step where capacity is insufficient to meet demand from upstream operations. Based on the Theory of Constraints, every system has exactly one binding constraint at any time, and improving any other part of the system does not increase total output.',
       },
       {
         q: 'How do you identify a bottleneck in a manufacturing facility?',
-        a: 'The constraint is found by looking for WIP accumulation. Material piles up in front of the constraint because upstream processes produce faster than the constraint can consume. Walk the floor and identify where staging racks are consistently full, where queues are deep, and where operators downstream are waiting for parts — that is where your constraint is.'
+        a: 'The constraint is found by looking for WIP accumulation. Material piles up in front of the constraint because upstream processes produce faster than the constraint can consume. Walk the floor and identify where staging racks are consistently full, where queues are deep, and where operators downstream are waiting for parts — that is where your constraint is.',
       },
       {
         q: 'What does it mean to exploit a bottleneck?',
-        a: 'Exploiting a constraint means getting the maximum possible output from it without additional capital investment. This includes eliminating planned downtime during constraint time, protecting it from material starvation, cross-training dedicated operators, reducing changeover time, and improving first-pass quality at the constraint input. Exploit before you elevate (add capacity).'
+        a: 'Exploiting a constraint means getting the maximum possible output from it without additional capital investment. This includes eliminating planned downtime during constraint time, protecting it from material starvation, cross-training dedicated operators, reducing changeover time, and improving first-pass quality at the constraint input. Exploit before you elevate (add capacity).',
       },
       {
         q: 'How often should you run a bottleneck analysis?',
-        a: 'Weekly bottleneck analysis is the recommended cadence for most operations. The constraint can shift as improvement actions take effect, product mix changes, or staffing fluctuates. A 45-minute weekly review — measuring actual throughput rate at the current constraint and checking whether it has moved — keeps improvement priorities aligned with current reality.'
-      }
-    ]
+        a: 'Weekly bottleneck analysis is the recommended cadence for most operations. The constraint can shift as improvement actions take effect, product mix changes, or staffing fluctuates. A 45-minute weekly review — measuring actual throughput rate at the current constraint and checking whether it has moved — keeps improvement priorities aligned with current reality.',
+      },
+    ],
   },
   {
     slug: 'headcount-optimization-starts-with-data',
@@ -581,67 +471,6 @@ For a practical look at how throughput measurement connects to bottleneck analys
     readTime: '9 min read',
     pillar: 'Throughput & Productivity',
     content: 'content',
-    faqs: []
-  }aterial handling, inspection, rework, expediting, administrative)?
-
-This data almost never exists in a usable form. It needs to be collected — through structured observation, through task logging, or through output-per-person tracking at the workstation level.
-
-**2. Output per person by zone**
-
-If zone A has 8 people and produces 400 units per shift, and zone B has 8 people and produces 280 units per shift, zone B has a productivity gap that's worth investigating. It might be a training issue, a process design problem, an equipment issue, or a headcount mismatch where zone B is overstaffed for its volume.
-
-Without output-per-person data at the zone level, you'll never see this. You'll just see total output and total headcount — which tells you nothing about where the efficiency gap is.
-
-**3. Task duration vs. standard**
-
-How long does each task actually take vs. how long it should take? Tasks that consistently run over standard are either improperly designed, improperly trained, or resourced incorrectly. Tasks that consistently run under standard may be overstaffed.
-
-## The Headcount Allocation Problem (Not the Headcount Volume Problem)
-
-Most operations don't have a headcount volume problem. They have a headcount allocation problem. The right number of people are in the building — they're just not in the right places.
-
-Common misallocations:
-- Bottleneck operations are understaffed while non-bottleneck operations have excess capacity
-- High-skill operators are assigned to tasks that a lower-skill employee could perform
-- Indirect tasks (material handling, inspection) are staffed with direct labor rates
-- Lines that run at 65% capacity have the same staffing as lines running at 95% capacity
-
-Data reveals these misallocations. Intuition and experience — even experienced plant managers — tend to underestimate them.
-
-## The Sequence That Works
-
-**Phase 1: Establish the baseline (2–4 weeks)**
-
-Before making any changes, measure current deployment. Track where each person is, what they're doing, and what output they're generating. This doesn't need to be perfect — a structured observation program running 3 days per week for 2–3 weeks will give you enough data to see patterns.
-
-OpsOS ShiftAdvisor tracks task assignment against output at the zone and workstation level, building this baseline automatically from shift data.
-
-**Phase 2: Identify the highest-value mismatches**
-
-Look for: zones where output-per-person is 20%+ below the facility average. Look for: tasks that are consuming more hours than their value-adding time justifies. Look for: bottleneck operations that are losing throughput because of staffing constraints (see [Bottleneck Analysis: The 5-Step Process Every Ops Manager Should Run Weekly](/blog/bottleneck-analysis-5-step-weekly)).
-
-**Phase 3: Rebalance before reducing**
-
-Many operations can improve throughput *and* reduce overall headcount by rebalancing allocation before cutting anyone. Moving two people from an overstaffed non-bottleneck line to a bottleneck line can increase total facility output by 8–12% — which then creates the productivity improvement that justifies a reduction elsewhere.
-
-**Phase 4: Right-size with attrition where possible**
-
-Reductions should target roles that are genuinely redundant after rebalancing — not the easiest cuts. Use natural attrition, cross-training, and role redesign before reaching for layoffs. The knowledge loss from layoffs is a real cost that rarely gets accounted for in the business case.
-
-## What the Data Usually Reveals
-
-In most operations, a 2-week deployment analysis reveals:
-- 2–4 workstations that are consistently overstaffed (generating less than 75% of expected output per person)
-- 1–3 bottleneck operations that are resource-constrained and would benefit from additional staffing or task redesign
-- A material handling operation that's consuming 8–15% of the direct labor budget without being tracked as a separate cost center
-- An informal rework function (people "touching up" parts that don't pass inspection) that's absorbing 3–6% of labor hours without appearing in any report
-
-This is where the improvement opportunity is. Not in the headcount number — in the deployment pattern.
-
-To understand how throughput connects to staffing decisions, see [Why Your Throughput Numbers Are Lying to You](/blog/throughput-numbers-lying-how-to-fix) and [Shift Performance Reports: What You Should Be Tracking Every Single Day](/blog/shift-performance-reports-track-daily).
-
-[See how OpsOS ShiftAdvisor reveals deployment patterns — request a demo at opsos.pro](https://opsos.pro)
-    `,
     faqs: [
       {
         q: 'What is headcount optimization in manufacturing?',
@@ -1123,8 +952,7 @@ For the complete picture of KPIs — both leading and lagging — see [The 8 War
         a: 'A functional predictive KPI dashboard can be built with manual data collection and a weekly spreadsheet: track intra-shift throughput at hour marks, count minor stoppages per machine per shift, measure queue depth at shift start and end, and record first-hour scrap separately. Digital systems automate this and add real-time alerting, but the metrics themselves can be tracked manually as a starting point.'
       }
     ]
-  }
-
+  },
   {
     slug: 'throughput-numbers-lying',
     title: 'Why Your Throughput Numbers Are Lying to You (And How to Fix It)',
@@ -1311,8 +1139,8 @@ Related: [OEE Explained for Plant Managers Who Don't Have Time for Textbooks](/b
   },
   {
     slug: 'oee-explained-plant-managers',
-    title: 'OEE Explained for Plant Managers Who Don't Have Time for Textbooks',
-    description: 'OEE is the most useful single number in manufacturing — and the most misunderstood. Here is a plain-language explanation of what it measures, what it doesn't, and how to use it to actually improve your operation.',
+    title: 'OEE Explained for Plant Managers Who Don\'t Have Time for Textbooks',
+    description: 'OEE is the most useful single number in manufacturing — and the most misunderstood. Here is a plain-language explanation of what it measures, what it doesn\'t, and how to use it to actually improve your operation.',
     date: '2026-03-28',
     readTime: '8 min read',
     pillar: 'OEE',
@@ -1580,7 +1408,7 @@ Related: [OEE Explained for Plant Managers Who Don't Have Time for Textbooks](/b
     faqs: [
       {
         q: 'How often should I run a bottleneck analysis?',
-        a: 'Bottleneck analysis should be a weekly process, not a one-time project. Every meaningful improvement shifts the system constraint to a different point. A standing weekly review — using the 5-step process — keeps you ahead of a moving bottleneck rather than chasing yesterday's problem.'
+        a: 'Bottleneck analysis should be a weekly process, not a one-time project. Every meaningful improvement shifts the system constraint to a different point. A standing weekly review — using the 5-step process — keeps you ahead of a moving bottleneck rather than chasing yesterday\'s problem.'
       },
       {
         q: 'What is the difference between a downtime loss and a speed loss at a bottleneck station?',
@@ -1745,7 +1573,7 @@ Related: [Bottleneck Analysis: The 5-Step Process Every Ops Manager Should Run W
       },
       {
         q: 'How should I use shift data in my morning operations review?',
-        a: 'A 15-minute morning review using shift data should answer four questions: Did we hit yesterday's targets (and where did we fall short)? What is the highest-priority maintenance issue? What is the quality risk for today? Is today's staffing plan intact?'
+        a: 'A 15-minute morning review using shift data should answer four questions: Did we hit yesterday\'s targets (and where did we fall short)? What is the highest-priority maintenance issue? What is the quality risk for today? Is today\'s staffing plan intact?'
       },
       {
         q: 'Does real-time production visibility replace the need for shift reports?',
