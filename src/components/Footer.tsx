@@ -1,63 +1,69 @@
 import Link from 'next/link';
 
+const PRODUCTS = [
+  { slug: 'shift-advisor', name: 'Shift Advisor' },
+  { slug: 'labor-planner', name: 'Labor Planner' },
+  { slug: 'bridge-center', name: 'Bridge Center' },
+  { slug: 'loss-intelligence', name: 'Loss Intelligence' },
+  { slug: 'complete', name: 'OpsOS Complete' },
+];
+
 export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-ops-border bg-ops-dark mt-24">
+    <footer className="border-t border-ink-border bg-ink-canvas mt-32">
       <div className="max-w-7xl mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
-          {/* Brand */}
-          <div className="col-span-1 md:col-span-2">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-8 h-8 border border-ops-blue flex items-center justify-center relative">
-                <span className="font-mono text-ops-blue font-bold text-sm">OS</span>
-                <div className="absolute top-0.5 right-0.5 w-1.5 h-1.5 bg-ops-green rounded-full" />
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-12">
+          <div className="md:col-span-2">
+            <div className="flex items-center gap-2.5 mb-4">
+              <div className="w-8 h-8 rounded-md bg-accent flex items-center justify-center">
+                <span className="text-ink-black font-bold text-sm">O</span>
               </div>
-              <span className="font-bold text-ops-text tracking-wider">OpsOS</span>
+              <span className="font-bold text-ink-text tracking-tight">OpsOS</span>
             </div>
-            <p className="text-ops-muted text-sm leading-relaxed max-w-xs">
-              Warehouse operations intelligence for Tier 2–3 manufacturers, steel distributors, and distribution centers. Stop guessing. Start seeing.
+            <p className="text-ink-muted text-sm leading-relaxed max-w-xs">
+              Your systems show what happened. OpsOS tells managers what to do next — before, during, and after every shift.
             </p>
-            <div className="mt-6 flex items-center gap-2">
-              <div className="ops-status-dot" />
-              <span className="font-mono text-ops-green text-xs">All systems operational</span>
-            </div>
           </div>
 
-          {/* Product */}
           <div>
-            <p className="section-label mb-4">Product</p>
+            <p className="section-label mb-4">Products</p>
             <div className="flex flex-col gap-3">
-              <Link href="/features" className="text-ops-muted hover:text-ops-text text-sm transition-colors">Features</Link>
-              <Link href="/pricing" className="text-ops-muted hover:text-ops-text text-sm transition-colors">Pricing</Link>
-              <Link href="/blog" className="text-ops-muted hover:text-ops-text text-sm transition-colors">Blog</Link>
-              <Link href="#demo" className="text-ops-muted hover:text-ops-text text-sm transition-colors">Request Demo</Link>
-            </div>
-          </div>
-
-          {/* Modules */}
-          <div>
-            <p className="section-label mb-4">Modules</p>
-            <div className="flex flex-col gap-3">
-              {['OpsPulse', 'FlowAI', 'WasteWatch', 'ShiftAdvisor', 'Ask OpsOS', 'SafetyShield'].map((mod) => (
-                <Link key={mod} href="/features" className="text-ops-muted hover:text-ops-text text-sm transition-colors">{mod}</Link>
+              {PRODUCTS.map((p) => (
+                <Link key={p.slug} href={`/products/${p.slug}`} className="text-ink-muted hover:text-ink-text text-sm transition-colors">{p.name}</Link>
               ))}
+            </div>
+          </div>
+
+          <div>
+            <p className="section-label mb-4">Company</p>
+            <div className="flex flex-col gap-3">
+              <Link href="/who-its-for" className="text-ink-muted hover:text-ink-text text-sm transition-colors">Who It&apos;s For</Link>
+              <Link href="/how-it-works" className="text-ink-muted hover:text-ink-text text-sm transition-colors">How It Works</Link>
+              <Link href="/pricing" className="text-ink-muted hover:text-ink-text text-sm transition-colors">Pricing</Link>
+              <Link href="/blog" className="text-ink-muted hover:text-ink-text text-sm transition-colors">Blog</Link>
+              <Link href="/request-demo" className="text-ink-muted hover:text-ink-text text-sm transition-colors">Request Demo</Link>
+            </div>
+          </div>
+
+          <div>
+            <p className="section-label mb-4">Legal</p>
+            <div className="flex flex-col gap-3">
+              <Link href="/privacy" className="text-ink-muted hover:text-ink-text text-sm transition-colors">Privacy</Link>
+              <Link href="/terms" className="text-ink-muted hover:text-ink-text text-sm transition-colors">Terms</Link>
+              <Link href="/security" className="text-ink-muted hover:text-ink-text text-sm transition-colors">Security</Link>
+              <Link href="/contact" className="text-ink-muted hover:text-ink-text text-sm transition-colors">Contact</Link>
             </div>
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-ops-border flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="font-mono text-ops-muted text-xs">
-            © {year} OpsOS — Warehouse Intelligence Platform
+        <div className="mt-12 pt-8 border-t border-ink-border flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-ink-subtle text-xs">
+            © {year} OpsOS. All rights reserved.
           </p>
-          <div className="flex items-center gap-6">
-            <Link href="#" className="text-ops-muted hover:text-ops-blue text-xs transition-colors">Privacy</Link>
-            <Link href="#" className="text-ops-muted hover:text-ops-blue text-xs transition-colors">Terms</Link>
-            <Link href="#" className="text-ops-muted hover:text-ops-blue text-xs transition-colors">Security</Link>
-          </div>
-          <p className="font-mono text-ops-subtle text-xs">
-            Built by <Link href="https://caliberwebstudio.com" className="text-ops-blue hover:text-ops-blue/80 transition-colors" target="_blank" rel="noopener noreferrer">Caliber Web Studio</Link>
+          <p className="text-ink-subtle text-xs">
+            Built by <Link href="https://caliberwebstudio.com" className="text-ink-muted hover:text-accent transition-colors" target="_blank" rel="noopener noreferrer">Caliber Web Studio</Link>
           </p>
         </div>
       </div>
