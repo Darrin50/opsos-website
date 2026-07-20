@@ -1,12 +1,14 @@
 'use client';
 
 import { useState } from 'react';
+import { trackEvent } from '@/lib/analytics';
 
 export default function DemoSection() {
   const [formState, setFormState] = useState({ name: '', company: '', email: '', role: '', submitted: false });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    trackEvent({ name: 'demo_submit' });
     setFormState((prev) => ({ ...prev, submitted: true }));
   };
 

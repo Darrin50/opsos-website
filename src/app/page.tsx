@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import CtaLink from '@/components/CtaLink';
 
 const LOOP = [
   { step: 'Plan', product: 'Labor Planner', body: 'Staff the shift correctly before it starts.' },
@@ -72,12 +73,12 @@ export default function HomePage() {
               capacity, and money were actually lost.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mt-10">
-              <Link href="/request-demo" className="btn-primary">
+              <CtaLink href="/request-demo" location="home-hero" className="btn-primary">
                 Request a Demo
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>
-              </Link>
+              </CtaLink>
               <Link href="/how-it-works" className="btn-secondary">
                 See How It Works
               </Link>
@@ -268,7 +269,7 @@ export default function HomePage() {
             A guided walkthrough with your own shift structure &mdash; not a generic slideshow.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-            <Link href="/request-demo" className="btn-primary">Request a Demo</Link>
+            <CtaLink href="/request-demo" location="home-final-cta" className="btn-primary">Request a Demo</CtaLink>
             <Link href="/pricing" className="btn-secondary">View Pricing</Link>
           </div>
         </div>

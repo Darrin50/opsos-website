@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getBlogPost, getAllBlogSlugs, blogPosts } from '@/lib/blog';
+import CtaLink from '@/components/CtaLink';
 
 interface Props {
   params: { slug: string };
@@ -170,9 +171,9 @@ export default function BlogPostPage({ params }: Props) {
                 <p className="text-ink-muted text-xs mb-4 leading-relaxed">
                   30-minute demo on your actual operation. No slides.
                 </p>
-                <Link href="/request-demo" className="btn-primary text-xs py-2 px-4 w-full justify-center block text-center">
+                <CtaLink href="/request-demo" location="blog-sidebar" className="btn-primary text-xs py-2 px-4 w-full justify-center block text-center">
                   Request Demo
-                </Link>
+                </CtaLink>
               </div>
 
               {/* Related */}
@@ -198,7 +199,7 @@ export default function BlogPostPage({ params }: Props) {
         <div className="max-w-3xl mx-auto px-6 text-center">
           <h2 className="text-3xl font-bold text-ink-text tracking-tight">See OpsOS on your operation</h2>
           <p className="text-ink-muted mt-4 leading-relaxed">A guided walkthrough, not a generic slideshow.</p>
-          <Link href="/request-demo" className="btn-primary mt-8 inline-flex">Request a Demo</Link>
+          <CtaLink href="/request-demo" location="blog-final-cta" className="btn-primary mt-8 inline-flex">Request a Demo</CtaLink>
         </div>
       </section>
     </>

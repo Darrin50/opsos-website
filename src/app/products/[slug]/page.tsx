@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { PRODUCTS, getProduct } from '@/lib/products';
+import CtaLink from '@/components/CtaLink';
 
 export function generateStaticParams() {
   return PRODUCTS.map((p) => ({ slug: p.slug }));
@@ -40,7 +41,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
             {product.promise}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 mt-10">
-            <Link href="/request-demo" className="btn-primary">Request a Demo</Link>
+            <CtaLink href="/request-demo" location={`product-${product.slug}-hero`} className="btn-primary">Request a Demo</CtaLink>
             <Link href="/pricing" className="btn-secondary">View Pricing</Link>
           </div>
         </div>
@@ -102,7 +103,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
         <div className="max-w-3xl mx-auto px-6 text-center">
           <h2 className="text-3xl font-bold text-ink-text tracking-tight">See {product.name} on your operation</h2>
           <p className="text-ink-muted mt-4 leading-relaxed">A guided walkthrough with your own shift structure.</p>
-          <Link href="/request-demo" className="btn-primary mt-8 inline-flex">Request a Demo</Link>
+          <CtaLink href="/request-demo" location={`product-${product.slug}-final-cta`} className="btn-primary mt-8 inline-flex">Request a Demo</CtaLink>
         </div>
       </section>
     </>

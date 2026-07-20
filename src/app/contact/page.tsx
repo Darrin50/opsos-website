@@ -1,12 +1,14 @@
 'use client';
 
 import { useState } from 'react';
+import { trackEvent } from '@/lib/analytics';
 
 export default function ContactPage() {
   const [formState, setFormState] = useState({ name: '', email: '', message: '', submitted: false });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    trackEvent({ name: 'contact_submit' });
     setFormState((prev) => ({ ...prev, submitted: true }));
   };
 

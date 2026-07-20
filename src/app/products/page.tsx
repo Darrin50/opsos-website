@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { PRODUCTS } from '@/lib/products';
+import CtaLink from '@/components/CtaLink';
 
 export const metadata: Metadata = {
   title: 'Products',
@@ -53,7 +54,7 @@ export default function ProductsPage() {
         <div className="max-w-3xl mx-auto px-6 text-center">
           <h2 className="text-3xl font-bold text-ink-text tracking-tight">Not sure which fits your operation?</h2>
           <p className="text-ink-muted mt-4 leading-relaxed">A guided walkthrough is the fastest way to find out.</p>
-          <Link href="/request-demo" className="btn-primary mt-8 inline-flex">Request a Demo</Link>
+          <CtaLink href="/request-demo" location="products-overview-final-cta" className="btn-primary mt-8 inline-flex">Request a Demo</CtaLink>
         </div>
       </section>
     </>

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { PRODUCTS } from '@/lib/products';
+import CtaLink from '@/components/CtaLink';
 
 export const metadata: Metadata = {
   title: 'Pricing',
@@ -47,7 +48,7 @@ export default function PricingPage() {
                 during your demo.
               </p>
             </div>
-            <Link href="/request-demo" className="btn-primary whitespace-nowrap">Ask About a Pilot</Link>
+            <CtaLink href="/request-demo" location="pricing-header" className="btn-primary whitespace-nowrap">Ask About a Pilot</CtaLink>
           </div>
         </div>
       </section>
@@ -59,7 +60,7 @@ export default function PricingPage() {
             Pricing depends on facility count, shift structure, and which products you need. We&apos;ll
             walk through it together.
           </p>
-          <Link href="/request-demo" className="btn-primary mt-8 inline-flex">Request a Demo</Link>
+          <CtaLink href="/request-demo" location="pricing-final-cta" className="btn-primary mt-8 inline-flex">Request a Demo</CtaLink>
         </div>
       </section>
     </>

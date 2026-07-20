@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
+import AnalyticsPageView from '@/components/AnalyticsPageView';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://opsos.pro'),
@@ -79,6 +80,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         <a href="#main-content" className="skip-link">Skip to content</a>
+        <AnalyticsPageView />
         <Nav />
         <main id="main-content" className="pt-16">
           {children}

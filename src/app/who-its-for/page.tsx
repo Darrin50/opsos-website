@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import CtaLink from '@/components/CtaLink';
 
 export const metadata: Metadata = {
   title: "Who It's For",
@@ -80,7 +81,7 @@ export default function WhoItsForPage() {
         <div className="max-w-3xl mx-auto px-6 text-center">
           <h2 className="text-3xl font-bold text-ink-text tracking-tight">Not sure OpsOS fits your operation?</h2>
           <p className="text-ink-muted mt-4 leading-relaxed">Walk through it on your own shift structure.</p>
-          <Link href="/request-demo" className="btn-primary mt-8 inline-flex">Request a Demo</Link>
+          <CtaLink href="/request-demo" location="who-its-for-final-cta" className="btn-primary mt-8 inline-flex">Request a Demo</CtaLink>
         </div>
       </section>
     </>

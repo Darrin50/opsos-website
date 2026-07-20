@@ -2,6 +2,8 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
+import CtaLink from './CtaLink';
+import { trackEvent } from '@/lib/analytics';
 
 const PRODUCTS = [
   { slug: 'shift-advisor', name: 'Shift Advisor', tagline: 'Now' },
@@ -79,8 +81,14 @@ export default function Nav() {
         </div>
 
         <div className="hidden lg:flex items-center gap-3">
-          <Link href={APP_SIGN_IN_URL} className="text-ink-muted hover:text-ink-text text-sm font-medium px-3 py-2 transition-colors">Sign In</Link>
-          <Link href="/request-demo" className="btn-primary text-sm py-2.5 px-5">Request Demo</Link>
+          <Link
+            href={APP_SIGN_IN_URL}
+            className="text-ink-muted hover:text-ink-text text-sm font-medium px-3 py-2 transition-colors"
+            onClick={() => trackEvent({ name: 'sign_in_click' })}
+          >
+            Sign In
+          </Link>
+          <CtaLink href="/request-demo" location="nav" className="btn-primary text-sm py-2.5 px-5">Request Demo</CtaLink>
         </div>
 
         {/* Mobile hamburger */}
@@ -109,8 +117,14 @@ export default function Nav() {
           <Link href="/pricing" className="px-2 py-2.5 text-ink-muted hover:text-ink-text text-sm" onClick={() => setMenuOpen(false)}>Pricing</Link>
           <Link href="/blog" className="px-2 py-2.5 text-ink-muted hover:text-ink-text text-sm" onClick={() => setMenuOpen(false)}>Blog</Link>
           <div className="h-px bg-ink-border my-2" />
-          <Link href={APP_SIGN_IN_URL} className="px-2 py-2.5 text-ink-text text-sm font-medium" onClick={() => setMenuOpen(false)}>Sign In</Link>
-          <Link href="/request-demo" className="btn-primary text-sm py-3 justify-center mt-2" onClick={() => setMenuOpen(false)}>Request Demo</Link>
+          <Link
+            href={APP_SIGN_IN_URL}
+            className="px-2 py-2.5 text-ink-text text-sm font-medium"
+            onClick={() => { trackEvent({ name: 'sign_in_click' }); setMenuOpen(false); }}
+          >
+            Sign In
+          </Link>
+          <CtaLink href="/request-demo" location="nav-mobile" className="btn-primary text-sm py-3 justify-center mt-2" onClick={() => setMenuOpen(false)}>Request Demo</CtaLink>
         </div>
       )}
     </nav>
