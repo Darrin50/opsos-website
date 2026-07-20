@@ -3,18 +3,43 @@
 import { useState } from 'react';
 import { trackEvent } from '@/lib/analytics';
 
-export default function DemoSection() {
-  const [formState, setFormState] = useState({ name: '', company: '', email: '', role: '', submitted: false });
+type Status = 'idle' | 'submitting' | 'success' | 'error';
 
-  const handleSubmit = (e: React.FormEvent) => {
+export default function DemoSection() {
+  const [formState, setFormState] = useState({ name: '', company: '', email: '', role: '', honeypot: '' });
+  const [status, setStatus] = useState<Status>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    trackEvent({ name: 'demo_submit' });
-    setFormState((prev) => ({ ...prev, submitted: true }));
+    setStatus('submitting');
+    setErrorMessage('');
+
+    try {
+      const res = await fetch('/api/demo', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formState),
+      });
+      const data = await res.json().catch(() => ({}));
+
+      if (!res.ok) {
+        setStatus('error');
+        setErrorMessage(data.error || 'Something went wrong — please try again.');
+        return;
+      }
+
+      trackEvent({ name: 'demo_submit' });
+      setStatus('success');
+    } catch {
+      setStatus('error');
+      setErrorMessage('Something went wrong — please try again.');
+    }
   };
 
   return (
     <div className="max-w-2xl mx-auto">
-      {formState.submitted ? (
+      {status === 'success' ? (
         <div className="content-card p-12 text-center" role="status">
           <div className="w-12 h-12 rounded-full bg-signal-success/15 border border-signal-success/40 flex items-center justify-center mx-auto mb-4">
             <svg className="w-6 h-6 text-signal-success" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -82,12 +107,32 @@ export default function DemoSection() {
               </select>
             </div>
           </div>
+
+          {/* Honeypot: real users never see or fill this in. */}
+          <div style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px', overflow: 'hidden' }} aria-hidden="true">
+            <label htmlFor="demo-website">Website</label>
+            <input
+              id="demo-website"
+              type="text"
+              tabIndex={-1}
+              autoComplete="off"
+              value={formState.honeypot}
+              onChange={(e) => setFormState((prev) => ({ ...prev, honeypot: e.target.value }))}
+            />
+          </div>
+
+          {status === 'error' && (
+            <p className="text-signal-danger text-sm mt-4" role="alert">{errorMessage}</p>
+          )}
+
           <div className="mt-8 flex flex-col sm:flex-row items-center gap-4">
-            <button type="submit" className="btn-primary w-full sm:w-auto">
-              Request My Demo
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-              </svg>
+            <button type="submit" disabled={status === 'submitting'} className="btn-primary w-full sm:w-auto disabled:opacity-60 disabled:cursor-not-allowed">
+              {status === 'submitting' ? 'Sending…' : 'Request My Demo'}
+              {status !== 'submitting' && (
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              )}
             </button>
             <p className="text-ink-subtle text-xs text-center sm:text-left">
               We&apos;ll reach out to schedule a time — no account required to ask.

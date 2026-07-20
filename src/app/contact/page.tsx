@@ -3,13 +3,38 @@
 import { useState } from 'react';
 import { trackEvent } from '@/lib/analytics';
 
-export default function ContactPage() {
-  const [formState, setFormState] = useState({ name: '', email: '', message: '', submitted: false });
+type Status = 'idle' | 'submitting' | 'success' | 'error';
 
-  const handleSubmit = (e: React.FormEvent) => {
+export default function ContactPage() {
+  const [formState, setFormState] = useState({ name: '', email: '', message: '', honeypot: '' });
+  const [status, setStatus] = useState<Status>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    trackEvent({ name: 'contact_submit' });
-    setFormState((prev) => ({ ...prev, submitted: true }));
+    setStatus('submitting');
+    setErrorMessage('');
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formState),
+      });
+      const data = await res.json().catch(() => ({}));
+
+      if (!res.ok) {
+        setStatus('error');
+        setErrorMessage(data.error || 'Something went wrong — please try again.');
+        return;
+      }
+
+      trackEvent({ name: 'contact_submit' });
+      setStatus('success');
+    } catch {
+      setStatus('error');
+      setErrorMessage('Something went wrong — please try again.');
+    }
   };
 
   return (
@@ -24,7 +49,7 @@ export default function ContactPage() {
           </p>
         </div>
 
-        {formState.submitted ? (
+        {status === 'success' ? (
           <div className="content-card p-12 text-center" role="status">
             <div className="w-12 h-12 rounded-full bg-signal-success/15 border border-signal-success/40 flex items-center justify-center mx-auto mb-4">
               <svg className="w-6 h-6 text-signal-success" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -71,8 +96,26 @@ export default function ContactPage() {
                 />
               </div>
             </div>
-            <button type="submit" className="btn-primary w-full sm:w-auto mt-8">
-              Send Message
+
+            {/* Honeypot: real users never see or fill this in. */}
+            <div style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px', overflow: 'hidden' }} aria-hidden="true">
+              <label htmlFor="contact-website">Website</label>
+              <input
+                id="contact-website"
+                type="text"
+                tabIndex={-1}
+                autoComplete="off"
+                value={formState.honeypot}
+                onChange={(e) => setFormState((prev) => ({ ...prev, honeypot: e.target.value }))}
+              />
+            </div>
+
+            {status === 'error' && (
+              <p className="text-signal-danger text-sm mt-4" role="alert">{errorMessage}</p>
+            )}
+
+            <button type="submit" disabled={status === 'submitting'} className="btn-primary w-full sm:w-auto mt-8 disabled:opacity-60 disabled:cursor-not-allowed">
+              {status === 'submitting' ? 'Sending…' : 'Send Message'}
             </button>
           </form>
         )}
