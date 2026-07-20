@@ -58,9 +58,9 @@ The spreadsheet isn't the problem. The problem is the *latency* built into manua
 
 Real-time throughput tracking requires continuous data — not periodic snapshots.
 
-## How OpsPulse Tracks Throughput Continuously
+## How OpsOS Tracks Throughput Continuously
 
-OpsOS's OpsPulse module monitors throughput at the line, zone, and facility level on a **rolling 15-minute interval**. Operations managers see:
+OpsOS's Shift Advisor monitors throughput at the line, zone, and facility level on a **rolling 15-minute interval**. Operations managers see:
 
 - Live UPH vs. target with a color-coded deviation indicator
 - Automatic alerts when throughput drops more than 10% below target for two consecutive intervals
@@ -94,7 +94,7 @@ The spreadsheet never showed you that was possible.
       },
       {
         q: 'How do you track warehouse throughput in real time?',
-        a: 'Real-time throughput tracking requires a defined count event (barcode scan, PLC signal, or operator input), a continuous data capture method, and a visualization layer that shows current rate vs. target. Tools like OpsOS\'s OpsPulse module provide continuous monitoring with automatic alerts when throughput deviates from targets.'
+        a: 'Real-time throughput tracking requires a defined count event (barcode scan, PLC signal, or operator input), a continuous data capture method, and a visualization layer that shows current rate vs. target. Tools like OpsOS\'s Shift Advisor provide continuous monitoring with automatic alerts when throughput deviates from targets.'
       },
       {
         q: 'Why are spreadsheets ineffective for throughput tracking?',
@@ -130,7 +130,7 @@ The eight KPIs below are the ones that matter. Each one reveals a different dime
 
 **What good looks like:** Varies by operation type. The benchmark question is: *what is your target rate, and what percentage of time are you hitting it?* World-class operations hit target 85%+ of available time.
 
-**How OpsOS tracks it:** OpsPulse monitors throughput continuously on 15-minute rolling intervals. Alerts fire when rate drops 10%+ below target.
+**How OpsOS tracks it:** Shift Advisor surfaces throughput continuously on 15-minute rolling intervals. Alerts fire when rate drops 10%+ below target.
 
 ## KPI 2: Labor Cost Per Unit (LCPU)
 
@@ -140,7 +140,7 @@ The eight KPIs below are the ones that matter. Each one reveals a different dime
 
 **What good looks like:** Trending down over time (getting more output from the same labor spend). Stable LCPU with increasing volume is a win.
 
-**How OpsOS tracks it:** ShiftAdvisor links labor hours (from time-and-attendance or manual shift data) to throughput output, calculating LCPU per shift with historical trending.
+**How OpsOS tracks it:** Labor Planner links labor hours (from time-and-attendance or manual shift data) to throughput output, calculating LCPU per shift with historical trending.
 
 ## KPI 3: Overall Equipment Effectiveness (OEE)
 
@@ -150,7 +150,7 @@ The eight KPIs below are the ones that matter. Each one reveals a different dime
 
 **What good looks like:** 85%+ for world-class. 75%+ for competitive. Under 65% means significant opportunity.
 
-**How OpsOS tracks it:** OpsPulse automatically calculates OEE from shift data, downtime logs, and cycle time tracking.
+**How OpsOS tracks it:** Loss Intelligence automatically calculates OEE from shift data, downtime logs, and cycle time tracking.
 
 ## KPI 4: On-Time Shipment Rate (OTSR)
 
@@ -168,7 +168,7 @@ The eight KPIs below are the ones that matter. Each one reveals a different dime
 
 **What good looks like:** Under 1% for mature operations. Under 0.5% for Tier 1–qualified suppliers.
 
-**How OpsOS tracks it:** WasteWatch categorizes waste by type, zone, and time of occurrence. Patterns emerge that show *where* and *when* waste spikes — not just the aggregate number.
+**How OpsOS tracks it:** Loss Intelligence categorizes waste by type, zone, and time of occurrence in its loss ledger. Patterns emerge that show *where* and *when* waste spikes — not just the aggregate number.
 
 ## KPI 6: Headcount Utilization Rate
 
@@ -176,7 +176,7 @@ The eight KPIs below are the ones that matter. Each one reveals a different dime
 
 **Why it matters:** 100 people on the floor ≠ 100 people producing. Typical utilization in unoptimized operations runs 70–80%. Raising it to 88–90% without adding headcount is like getting 8–10 free workers.
 
-**How OpsOS tracks it:** ShiftAdvisor tracks task assignment versus output, flagging zones where headcount isn't generating proportional throughput.
+**How OpsOS tracks it:** Labor Planner tracks task assignment versus output, flagging zones where headcount isn't generating proportional throughput.
 
 ## KPI 7: Safety Incident Rate (TRIR)
 
@@ -186,7 +186,7 @@ The eight KPIs below are the ones that matter. Each one reveals a different dime
 
 **What good looks like:** Under 1.0 TRIR for best-in-class. Industry average is approximately 3.0–3.5.
 
-**How OpsOS tracks it:** SafetyShield logs incidents, near-misses, and safety observations in real time, with automatic TRIR calculation and trend reporting.
+**Note:** Safety incident tracking typically lives in a dedicated EHS/HR system rather than shift-operations software — it's outside OpsOS's current product scope, which starts once safety-cleared labor is available to plan and run a shift.
 
 ## KPI 8: Inventory Accuracy Rate
 
@@ -200,7 +200,7 @@ The eight KPIs below are the ones that matter. Each one reveals a different dime
 
 These 8 KPIs should be on a single dashboard, reviewed every Monday morning by the operations team. The review should take 20 minutes, not two hours. The goal is to identify the one or two metrics that deviated most from target in the prior week and assign root-cause owners.
 
-OpsOS's OpsPulse module generates this weekly summary automatically — emailed to your team at 6 AM Monday with prior-week data and week-over-week comparison.
+OpsOS's Bridge Center generates this weekly summary automatically — emailed to your team at 6 AM Monday with prior-week data and week-over-week comparison.
     `,
     faqs: [
       {
@@ -332,10 +332,10 @@ Most plants are losing significant OEE to losses they're not even tracking, prim
 
 Manual OEE calculation is time-consuming and error-prone — especially for Performance, which requires capturing minor stops that rarely get logged.
 
-OpsOS's OpsPulse module calculates OEE automatically from:
+OpsOS's Loss Intelligence calculates OEE automatically from:
 - **Availability:** Integration with machine signals or operator-logged downtime events
 - **Performance:** Continuous cycle time monitoring against ideal cycle time standards
-- **Quality:** Scrap/rework data from WasteWatch or operator input at the line
+- **Quality:** Scrap/rework data from the loss ledger or operator input at the line
 
 The result is real-time OEE — visible on the plant floor dashboard, updated every 15 minutes, with drill-down into which component is driving the loss right now.
 
@@ -583,7 +583,7 @@ Paper shift reports work. They have always worked. But they have one fundamental
 
 A paper shift report tells you what happened on one shift. To see patterns across 20 shifts, someone needs to manually compile 20 paper reports — a process that takes 2–3 hours and usually doesn't happen.
 
-Digital shift reports, when structured correctly, aggregate automatically. OpsOS ShiftAdvisor generates the shift report framework automatically, pulling throughput data and downtime events from OpsPulse, requiring the shift leader to add only the qualitative context (root cause notes, carry-forward items). The result: a shift report that takes 8 minutes to complete and generates automatic weekly trend analysis.
+Digital shift reports, when structured correctly, aggregate automatically. OpsOS's Bridge Center generates the shift report framework automatically, pulling throughput data and downtime events from Shift Advisor's live record, requiring the shift leader to add only the qualitative context (root cause notes, carry-forward items). The result: a shift report that takes 8 minutes to complete and generates automatic weekly trend analysis.
 
 For a broader look at what metrics belong in your daily operational review, see [The 8 Warehouse KPIs Every Operations Manager Must Track Weekly](/blog/warehouse-kpis-operations-manager-must-track).
 
@@ -802,9 +802,9 @@ The 30% scrap reduction isn't a single project. It's a feedback loop:
 
 Running this loop monthly produces modest improvement. Running it weekly produces 30% scrap reduction in 90–120 days at most facilities.
 
-## The OpsOS WasteWatch Approach
+## The OpsOS Loss Intelligence Approach
 
-OpsOS WasteWatch captures scrap events in real time at the line or workstation level, with automatic tagging by machine and time, and operator-entered cause categorization (from a standardized list of 8–12 causes that takes 10 seconds to complete).
+OpsOS's Loss Intelligence captures scrap events in real time at the line or workstation level, with automatic tagging by machine and time, and operator-entered cause categorization (from a standardized list of 8–12 causes that takes 10 seconds to complete).
 
 The output is a live scrap dashboard showing:
 - Today's scrap rate vs. target
@@ -816,7 +816,7 @@ The weekly automated scrap analysis report is emailed to the quality and operati
 
 For a full view of how scrap reduction connects to your OEE metrics, see [OEE Explained for Plant Managers Who Don't Have Time for Textbooks](/blog/oee-explained-no-textbooks-plant-managers). And for how scrap drives the hidden cost picture at automotive suppliers, see [How Detroit Auto Suppliers Are Losing $50K/Month Without Knowing It](/blog/detroit-auto-suppliers-losing-50k-month).
 
-[See WasteWatch live scrap tracking in action — request a demo at opsos.pro](https://opsos.pro)
+[See Loss Intelligence live scrap tracking in action — request a demo at opsos.pro](https://opsos.pro)
     `,
     faqs: [
       {
@@ -928,7 +928,7 @@ A practical predictive KPI dashboard includes:
 
 This dashboard doesn't replace your standard KPI review — it supplements it with early warning signals. When one of these metrics trends in the wrong direction, you investigate before the problem becomes a crisis.
 
-OpsOS's OpsPulse module generates all six of these leading indicators automatically, with configurable alert thresholds for each. The result is an operations team that gets ahead of problems instead of reacting to them.
+OpsOS's Shift Advisor and Loss Intelligence generate these leading indicators automatically, with configurable alert thresholds for each. The result is an operations team that gets ahead of problems instead of reacting to them.
 
 For the complete picture of KPIs — both leading and lagging — see [The 8 Warehouse KPIs Every Operations Manager Must Track Weekly](/blog/warehouse-kpis-operations-manager-must-track). And for a look at how bottleneck analysis uses leading indicators to identify constraint risk, see [Bottleneck Analysis: The 5-Step Process Every Ops Manager Should Run Weekly](/blog/bottleneck-analysis-5-step-weekly).
 

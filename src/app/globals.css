@@ -1,22 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-:root {
-  --ops-black: #0A0A0A;
-  --ops-dark: #111111;
-  --ops-panel: #161616;
-  --ops-border: #1E1E1E;
-  --ops-blue: #00D4FF;
-  --ops-blue-dim: #0070f3;
-  --ops-green: #00FF88;
-  --ops-amber: #FFB800;
-  --ops-red: #FF3B3B;
-  --ops-text: #E4E4E7;
-  --ops-muted: #71717A;
-}
 
 * {
   box-sizing: border-box;
@@ -28,150 +14,157 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
-  background-color: #0A0A0A;
-  color: #E4E4E7;
+  background-color: #0B0C0E;
+  color: #F3F4F6;
   font-family: 'Inter', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
+/* Visible focus ring everywhere — never remove focus outlines (FORBIDDEN.md). */
+:focus-visible {
+  outline: 2px solid #4C7CF5;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 /* Scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #111111;
+  background: #0F1113;
 }
 ::-webkit-scrollbar-thumb {
-  background: #1E1E1E;
-  border-radius: 3px;
+  background: #24272C;
+  border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #00D4FF;
+  background: #33373E;
 }
 
-/* Utility classes */
-.ops-grid-bg {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Cpath d='M 40 0 L 0 0 0 40' fill='none' stroke='%231E1E1E' stroke-width='1'/%3E%3C/svg%3E");
+/* ── Section label — small caps eyebrow, one accent, used sparingly ── */
+.section-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #4C7CF5;
 }
 
-.ops-gradient-text {
-  background: linear-gradient(135deg, #00D4FF 0%, #0070f3 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+/* ── Editorial prose measure for long-form copy ── */
+.prose-measure {
+  max-width: 68ch;
 }
 
-.ops-glow {
-  box-shadow: 0 0 20px rgba(0, 212, 255, 0.15);
-}
-
-.ops-glow-strong {
-  box-shadow: 0 0 40px rgba(0, 212, 255, 0.25);
-}
-
-.ops-panel {
-  background: #161616;
-  border: 1px solid #1E1E1E;
-  border-radius: 6px;
-}
-
-.ops-status-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #00FF88;
-  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.4; }
-}
-
-.metric-number {
-  font-family: 'JetBrains Mono', monospace;
-  font-variant-numeric: tabular-nums;
-}
-
-/* Fade in animation on scroll */
-.fade-in {
-  opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Button styles */
+/* ── Buttons — one primary action per screen (FORBIDDEN.md) ── */
 .btn-primary {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
+  min-height: 44px;
   padding: 12px 24px;
-  background: #00D4FF;
-  color: #0A0A0A;
+  background: #4C7CF5;
+  color: #0B0C0E;
   font-weight: 600;
-  font-size: 14px;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  font-size: 15px;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: background-color 0.15s ease, transform 0.15s ease;
   text-decoration: none;
 }
 
 .btn-primary:hover {
-  background: #00B8D9;
-  box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
-  transform: translateY(-1px);
+  background: #6B93F7;
+}
+
+.btn-primary:active {
+  background: #3B63D6;
+  transform: translateY(1px);
 }
 
 .btn-secondary {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
+  min-height: 44px;
   padding: 12px 24px;
   background: transparent;
-  color: #00D4FF;
+  color: #F3F4F6;
   font-weight: 600;
-  font-size: 14px;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  border: 1px solid #00D4FF;
-  border-radius: 4px;
+  font-size: 15px;
+  border: 1px solid #33373E;
+  border-radius: 8px;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
   text-decoration: none;
 }
 
 .btn-secondary:hover {
-  background: rgba(0, 212, 255, 0.08);
-  box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+  border-color: #4C7CF5;
+  background: rgba(76, 124, 245, 0.06);
 }
 
-/* Tag */
-.ops-tag {
-  display: inline-block;
-  padding: 3px 10px;
-  background: rgba(0, 212, 255, 0.08);
-  border: 1px solid rgba(0, 212, 255, 0.2);
-  color: #00D4FF;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  border-radius: 2px;
+.btn-secondary:active {
+  background: rgba(76, 124, 245, 0.12);
 }
 
-/* Section labels */
-.section-label {
+/* ── Framed product-demonstration panel — the ONLY place dashboard/data
+   visuals may appear (Product Family Architecture / OpsOS#148 §3). Not for
+   general marketing content. ── */
+.demo-frame {
+  background: #15171B;
+  border: 1px solid #24272C;
+  border-radius: 12px;
+}
+
+.demo-readout {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: #00D4FF;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Plain content card — restrained, no nested cards (FORBIDDEN.md) ── */
+.content-card {
+  background: #15171B;
+  border: 1px solid #24272C;
+  border-radius: 12px;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  background: #15171B;
+  border: 1px solid #24272C;
+  color: #9CA3AF;
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: 999px;
+}
+
+/* Skip-to-content link (accessibility). */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  background: #4C7CF5;
+  color: #0B0C0E;
+  padding: 12px 20px;
+  border-radius: 0 0 8px 0;
+  font-weight: 600;
+}
+
+.skip-link:focus {
+  left: 0;
 }

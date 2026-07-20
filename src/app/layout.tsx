@@ -2,14 +2,16 @@ import type { Metadata } from 'next';
 import './globals.css';
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
+import AnalyticsPageView from '@/components/AnalyticsPageView';
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://opsos.pro'),
   title: {
-    default: 'OpsOS — Warehouse Operations Intelligence',
+    default: 'OpsOS — Your systems show what happened. OpsOS tells managers what to do next.',
     template: '%s | OpsOS',
   },
-  description: 'OpsOS gives operations managers real-time visibility into throughput, waste, bottlenecks, and headcount efficiency. Built for Tier 2–3 automotive suppliers, steel distributors, and distribution centers.',
-  keywords: ['warehouse operations software', 'throughput tracking', 'OEE tracking', 'warehouse KPI dashboard', 'manufacturing operations intelligence', 'bottleneck analysis software'],
+  description: 'OpsOS is the operating loop for shift-based operations: Shift Advisor tells managers what to do right now, Labor Planner staffs the shift before it runs, Bridge Center explains what happened with evidence, and Loss Intelligence shows where time, labor, capacity, and money were lost.',
+  keywords: ['shift management software', 'labor planning software', 'operations intelligence platform', 'staffing optimization', 'shift handoff software', 'operational loss tracking'],
   authors: [{ name: 'OpsOS' }],
   creator: 'OpsOS',
   openGraph: {
@@ -17,14 +19,14 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://opsos.pro',
     siteName: 'OpsOS',
-    title: 'OpsOS — Warehouse Operations Intelligence',
-    description: 'Real-time visibility into throughput, waste, bottlenecks, and headcount. Built for manufacturers and distributors.',
+    title: 'OpsOS — Your systems show what happened. OpsOS tells managers what to do next.',
+    description: 'The operating loop for shift-based operations: plan the shift, run it, act on it, explain it, and learn from it — one platform, five front doors.',
     images: [{ url: '/og-image.png', width: 1200, height: 630 }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'OpsOS — Warehouse Operations Intelligence',
-    description: 'Real-time visibility into throughput, waste, bottlenecks, and headcount.',
+    title: 'OpsOS — Your systems show what happened. OpsOS tells managers what to do next.',
+    description: 'The operating loop for shift-based operations: Plan → Run → Act → Bridge → Learn.',
   },
   robots: {
     index: true,
@@ -33,28 +35,19 @@ export const metadata: Metadata = {
   },
 };
 
+// Pricing is a confirmed-truth gate (OpsOS#148 §money/pricing) — no Offer/price
+// values are declared here until current pricing is confirmed. Adding invented
+// numbers to this schema would misrepresent the product the same way the prior
+// hardcoded $497/mo figure did.
 const softwareApplicationSchema = {
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',
   name: 'OpsOS',
   applicationCategory: 'BusinessApplication',
   operatingSystem: 'Web',
-  description: 'Warehouse operations intelligence platform for automotive suppliers and distributors',
+  description: 'OpsOS is one platform, five product modes: Shift Advisor (now), Labor Planner (ahead), Bridge Center (explain), Loss Intelligence (recover), and OpsOS Complete (the full Plan-Run-Act-Bridge-Learn loop).',
   url: 'https://opsos.pro',
-  offers: {
-    '@type': 'AggregateOffer',
-    priceCurrency: 'USD',
-    lowPrice: '0',
-    highPrice: '497',
-    offerCount: '3',
-    offers: [
-      { '@type': 'Offer', name: 'Free Trial', price: '0', priceCurrency: 'USD' },
-      { '@type': 'Offer', name: 'Growth', price: '497', priceCurrency: 'USD', billingIncrement: 'Monthly' },
-      { '@type': 'Offer', name: 'Enterprise', price: 'Custom', priceCurrency: 'USD' },
-    ],
-  },
-  featureList: ['Real-time throughput tracking', 'OEE monitoring', 'Bottleneck identification', 'Waste tracking', 'Shift management', 'Safety incident tracking', 'AI-powered recommendations', 'Lean toolkit'],
-  screenshot: 'https://opsos.pro/screenshot.png',
+  featureList: ['Live shift guidance', 'Pre-shift labor planning', 'Evidence-backed shift bridging', 'Loss ledger and countermeasures', 'Deterministic engine calculations', 'AI-explained recommendations'],
 };
 
 const organizationSchema = {
@@ -63,11 +56,11 @@ const organizationSchema = {
   name: 'OpsOS',
   url: 'https://opsos.pro',
   logo: 'https://opsos.pro/logo.png',
-  description: 'Warehouse operations intelligence platform for mid-size manufacturers and distributors.',
+  description: 'OpsOS is the operating loop for shift-based operations — plan, run, act, bridge, and learn.',
   sameAs: [],
   foundingLocation: { '@type': 'Place', name: 'Detroit, MI' },
   areaServed: 'US',
-  knowsAbout: ['Warehouse operations', 'Manufacturing efficiency', 'OEE tracking', 'Lean manufacturing', 'Throughput optimization'],
+  knowsAbout: ['Shift management', 'Labor planning', 'Operations intelligence', 'Staffing optimization'],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -86,8 +79,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body>
+        <a href="#main-content" className="skip-link">Skip to content</a>
+        <AnalyticsPageView />
         <Nav />
-        <main className="pt-16">
+        <main id="main-content" className="pt-16">
           {children}
         </main>
         <Footer />
